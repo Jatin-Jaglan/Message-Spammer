@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Spammer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+</head>
+<style>
+    #message {
+        min-height: 40px; /* Set a minimum height to avoid collapsing */
+        overflow-y: hidden; /* Hide vertical scrollbar */
+        resize: none; /* Disable textarea resize */
+    }
+</style>
+
+<body class="bg-gray-200 min-h-screen flex justify-center items-center">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4">
+            <p class="font-bold">Warning:</p>
+            <p>This tool is for fun purposes only. Do not use it for malicious activities. The creator of this tool will not be responsible for any misuse.</p>
+        </div>
+        <h1 class="text-2xl font-bold mb-4">Message Spammer</h1>
+        <form method="POST" action="/" class="space-y-4">
+            <div>
+                <label for="message" class="block">Message:</label>
+                <textarea id="message" name="message" placeholder="Hello" class="border border-gray-300 rounded-md px-3 py-2 w-full" rows="1" required></textarea>
+            </div>
+            <div>
+                <label for="count" class="block">Number of Times:</label>
+                <input type="number" id="count" name="count" min="1" max="50" placeholder="1<Times"  class="border border-gray-300 rounded-md px-3 py-2 w-full" required>
+                <p class="text-xs text-gray-500 mt-1">Enter a whole number between 1 and 50.</p>
+            </div>
+            <div>
+                <label for="delay" class="block">Delay (seconds):</label>
+                <input type="number" id="delay" name="delay" min="0.3" placeholder="0.3<Delay" step="any" class="border border-gray-300 rounded-md px-3 py-2 w-full" required>
+                <p class="text-xs text-gray-500 mt-1">Enter a delay greater than 0.3 seconds.</p>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Spam Message</button>
+        </form>
+        <div class="mt-4 text-sm text-gray-600">
+            <p><strong>Instructions:</strong></p>
+            <ul class="list-disc pl-5">
+                <li>Enter the message you want to spam.</li>
+                <li>Set the number of times to spam between 1 and 50.</li>
+                <li>Choose a delay greater than 0.3 seconds.</li>
+                <li>Press the "Spam Message" button and move your cursor to the target location.</li>
+                <li>The spamming will start after a 10-second delay from pressing the button.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // JavaScript to make the textarea expandable
+        const textarea = document.getElementById('message');
+        textarea.addEventListener('input', function () {
+            this.style.height = 'auto'; // Reset height to auto
+            this.style.height = (this.scrollHeight + 2) + 'px'; // Set height to scrollHeight + 2px
+        });
+
+    </script>
+</body>
+
+</html>
